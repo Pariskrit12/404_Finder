@@ -2,8 +2,8 @@ import connectDB from "./db/connection.js";
 import { app } from "./app.js";
 import { createServer } from "http";
 import dotenv from "dotenv";
-import * as cheerio from 'cheerio';
-import axios from "axios";
+// import * as cheerio from 'cheerio';
+// import axios from "axios";
 const server = createServer(app);
 dotenv.config({
   path: "./env",
@@ -17,6 +17,7 @@ connectDB()
   .catch((err) => {
     console.log(err);
   });
+
 
 
   // const first=cheerio.load('<h2 class="title">hello hi</h2>');

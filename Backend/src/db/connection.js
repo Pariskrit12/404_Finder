@@ -2,7 +2,7 @@ import moongose from "mongoose";
 import { DB_NAME } from "../constant.js";
 const connection=async()=>{
     try{
-        const connectionInstance=await moongose.connect(`${process.env.MONOGODB_URI}${DB_NAME}`);
+        const connectionInstance=await moongose.connect(`${process.env.MONGODB_URI}${DB_NAME}`);
         console.log(`MongoDB Successfully Connected At Host ${connectionInstance.connection.host}`);
         
     }catch(error){

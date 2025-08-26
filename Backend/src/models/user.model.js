@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+
 const userSchema = new Schema(
   {
     username: {
@@ -24,6 +25,9 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    refreshToken: {
+      type: String,
+    },
     // image: {
     //   type: String,
     //   required: true,
@@ -42,7 +46,7 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.methods.comparePassword = async function (password) {
-  return await bcrypt.compare(this.password, password);
+  return await bcrypt.compare(password,this.password);
 };
 
 userSchema.methods.generateAccessToken = function () {
